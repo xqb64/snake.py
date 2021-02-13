@@ -1,6 +1,6 @@
 # pysnake
 
-![build status](https://github.com/xvm32/pysnake/workflows/pysnake/badge.svg) [![codecov](https://codecov.io/gh/xvm32/pysnake/branch/master/graph/badge.svg?token=TLGV3HQGK0)](https://codecov.io/gh/xvm32/pysnake) ![python-versions](.github/badges/python-versions.svg) ![GitHub](https://img.shields.io/github/license/xvm32/pysnake)
+![build status](https://github.com/xvm32/snake.py/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/xvm32/snake.py/branch/master/graph/badge.svg?token=TLGV3HQGK0)](https://codecov.io/gh/xvm32/snake.py) ![python-versions](.github/badges/python-versions.svg) ![GitHub](https://img.shields.io/github/license/xvm32/snake.py)
 
 Classic snake game implementation written in Python using curses.
 
@@ -42,4 +42,4 @@ tox
 
 ## Licensing
 
-Licensed under the [MIT License](https://opensource.org/licenses/MIT). For details, see [LICENSE](https://github.com/xvm32/pysnake/blob/master/LICENSE)
+Licensed under the [MIT License](https://opensource.org/licenses/MIT). For details, see [LICENSE](https://github.com/xvm32/snake.py/blob/master/LICENSE)
