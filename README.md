@@ -1,4 +1,4 @@
-# pysnake
+# snake.py
 
 ![build status](https://github.com/xvm32/snake.py/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/xvm32/snake.py/branch/master/graph/badge.svg?token=TLGV3HQGK0)](https://codecov.io/gh/xvm32/snake.py) ![python-versions](.github/badges/python-versions.svg) ![GitHub](https://img.shields.io/github/license/xvm32/snake.py)
 
