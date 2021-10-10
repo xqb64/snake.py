@@ -18,7 +18,7 @@ virtualenvs.in-project = true
 Then clone the repo, cd into it, make a venv, activate it, and install the project:
 
 ```sh
-git clone https://github.com/xvm32/pysnake
+git clone https://github.com/xvm32/snake.py pysnake
 cd pysnake
 poetry env use python3
 . .venv/bin/activate
