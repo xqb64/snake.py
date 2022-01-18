@@ -2,7 +2,7 @@
 name = "snake"
 version = "0.1.0"
 description = "The classic snake game implemented in Python using curses"
-authors = ["xvm32 <xvm32@users.noreply.github.com>"]
+authors = ["xqb64 <xqb64@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
 

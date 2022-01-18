@@ -1,6 +1,6 @@
 # snake.py
 
-![build status](https://github.com/xvm32/snake.py/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/xvm32/snake.py/branch/master/graph/badge.svg?token=TLGV3HQGK0)](https://codecov.io/gh/xvm32/snake.py) ![python-versions](.github/badges/python-versions.svg) ![GitHub](https://img.shields.io/github/license/xvm32/snake.py)
+![build status](https://github.com/xqb64/snake.py/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/xqb64/snake.py/branch/master/graph/badge.svg?token=TLGV3HQGK0)](https://codecov.io/gh/xqb64/snake.py) ![python-versions](.github/badges/python-versions.svg) ![GitHub](https://img.shields.io/github/license/xqb64/snake.py)
 
 Classic snake game implementation written in Python using curses.
 
@@ -18,7 +18,7 @@ virtualenvs.in-project = true
 Then clone the repo, cd into it, make a venv, activate it, and install the project:
 
 ```sh
-git clone https://github.com/xvm32/snake.py pysnake
+git clone https://github.com/xqb64/snake.py pysnake
 cd pysnake
 poetry env use python3
 . .venv/bin/activate
@@ -42,4 +42,4 @@ tox
 
 ## Licensing
 
-Licensed under the [MIT License](https://opensource.org/licenses/MIT). For details, see [LICENSE](https://github.com/xvm32/snake.py/blob/master/LICENSE)
+Licensed under the [MIT License](https://opensource.org/licenses/MIT). For details, see [LICENSE](https://github.com/xqb64/snake.py/blob/master/LICENSE)
