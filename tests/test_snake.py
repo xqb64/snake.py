@@ -1,38 +1,42 @@
 import pytest
 from snake import core
-from tests.fixtures import fake_stdscr
+from tests.fixtures import fake_stdscr  # noqa: F401
 
 
 @pytest.mark.parametrize(
     "current, potential",
     [
         [
-            core.Direction.UP, [
+            core.Direction.UP,
+            [
                 (core.Direction.LEFT, core.Coord(0, -1)),
-                (core.Direction.RIGHT, core.Coord(0, 1))
-            ]
+                (core.Direction.RIGHT, core.Coord(0, 1)),
+            ],
         ],
         [
-            core.Direction.DOWN, [
+            core.Direction.DOWN,
+            [
                 (core.Direction.LEFT, core.Coord(0, -1)),
-                (core.Direction.RIGHT, core.Coord(0, 1))
-            ]
+                (core.Direction.RIGHT, core.Coord(0, 1)),
+            ],
         ],
         [
-            core.Direction.LEFT, [
+            core.Direction.LEFT,
+            [
                 (core.Direction.UP, core.Coord(-1, 0)),
-                (core.Direction.DOWN, core.Coord(1, 0))
-            ]
+                (core.Direction.DOWN, core.Coord(1, 0)),
+            ],
         ],
         [
-            core.Direction.RIGHT, [
+            core.Direction.RIGHT,
+            [
                 (core.Direction.UP, core.Coord(-1, 0)),
-                (core.Direction.DOWN, core.Coord(1, 0))
-            ]
+                (core.Direction.DOWN, core.Coord(1, 0)),
+            ],
         ],
     ],
 )
-def test_move(current, potential, fake_stdscr):
+def test_move(current, potential, fake_stdscr):  # noqa: F811
     game = core.Game(fake_stdscr)
     if current == core.Direction.LEFT:
         game.set_direction(core.Direction.UP)
@@ -47,14 +51,14 @@ def test_move(current, potential, fake_stdscr):
         assert game.snake.body[-1] == before[-1] + next_step
 
 
-def test_eat_food(fake_stdscr):
+def test_eat_food(fake_stdscr):  # noqa: F811
     snake = core.Snake(fake_stdscr)
     before_eating = len(snake.body)
     snake.eat_food()
     assert len(snake.body) == before_eating + 1
 
 
-def test_is_touching_food(fake_stdscr):
+def test_is_touching_food(fake_stdscr):  # noqa: F811
     game = core.Game(fake_stdscr)
     game.food.coord.y = game.snake.body[-1].y
     game.food.coord.x = game.snake.body[-1].x + 1
@@ -72,13 +76,13 @@ def test_is_touching_food(fake_stdscr):
         [core.Direction.RIGHT, core.Coord(y=12, x=24)],
     ],
 )
-def test_get_next_step(direction, coords, fake_stdscr):
+def test_get_next_step(direction, coords, fake_stdscr):  # noqa: F811
     game = core.Game(fake_stdscr)
     game.set_direction(direction)
     assert game.snake.get_next_step() == coords
 
 
-def test_collision(fake_stdscr):
+def test_collision(fake_stdscr):  # noqa: F811
     game = core.Game(fake_stdscr)
     for direction in (
         core.Direction.RIGHT,

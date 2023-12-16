@@ -3,13 +3,13 @@ from snake import application
 from snake import core
 from snake import user_interface
 from tests.fixtures import (
-    fake_curses,
-    fake_stdscr,
+    fake_curses,  # noqa: F401
+    fake_stdscr,  # noqa: F401
 )
 from tests.util import (
-    fake_game_over,
+    fake_game_over,  # noqa: F401
     fake_getch_app,
-    fake_pause
+    fake_pause,
 )
 
 
@@ -20,15 +20,13 @@ from tests.util import (
         ["COLS", user_interface.PLAYGROUND_WIDTH - 1],
     ],
 )
-def test_ensuring_terminal_size(
-    monkeypatch, fake_curses, fake_stdscr, attr, value
-):
+def test_ensuring_terminal_size(monkeypatch, fake_curses, fake_stdscr, attr, value):  # noqa: F811
     monkeypatch.setattr(fake_curses, attr, value)
     with pytest.raises(AssertionError):
         application.main(fake_stdscr)
 
 
-def test_user_input(monkeypatch, fake_curses, fake_stdscr):
+def test_user_input(monkeypatch, fake_curses, fake_stdscr):  # noqa: F811
     monkeypatch.setattr(fake_stdscr, "getch", fake_getch_app)
     monkeypatch.setattr(core.Game, "pause", fake_pause)
     with pytest.raises(SystemExit):

@@ -1,12 +1,7 @@
 import collections
 import enum
 import random
-from typing import (
-    Any,
-    Dict,
-    Deque,
-    Optional
-)
+from typing import Deque, Optional, TypedDict
 
 import attr
 
@@ -19,7 +14,7 @@ class Coord:
     y: int = attr.ib()
     x: int = attr.ib()
 
-    def __add__(self, other):
+    def __add__(self, other: "Coord") -> "Coord":
         return Coord(self.y + other.y, self.x + other.x)
 
 
@@ -30,23 +25,16 @@ class Direction(enum.Enum):
     RIGHT = "right"
 
 
-DIRECTIONS: Dict[Direction, Any] = {
-    Direction.UP: {
-        "coords": Coord(-1, 0),
-        "forbidden": Direction.DOWN
-    },
-    Direction.DOWN: {
-        "coords": Coord(1, 0),
-        "forbidden": Direction.UP
-    },
-    Direction.LEFT: {
-        "coords": Coord(0, -1),
-        "forbidden": Direction.RIGHT
-        },
-    Direction.RIGHT: {
-        "coords": Coord(0, 1),
-        "forbidden": Direction.LEFT
-    },
+class DirectionInfo(TypedDict):
+    coords: Coord
+    forbidden: Direction
+
+
+DIRECTIONS: dict[Direction, DirectionInfo] = {
+    Direction.UP: {"coords": Coord(-1, 0), "forbidden": Direction.DOWN},
+    Direction.DOWN: {"coords": Coord(1, 0), "forbidden": Direction.UP},
+    Direction.LEFT: {"coords": Coord(0, -1), "forbidden": Direction.RIGHT},
+    Direction.RIGHT: {"coords": Coord(0, 1), "forbidden": Direction.LEFT},
 }
 
 
@@ -104,6 +92,7 @@ class Game:
         """
         self.paused = not self.paused
 
+
 class Snake:
     def __init__(self, screen: Window):
         self.screen = screen
@@ -135,21 +124,21 @@ class Snake:
         current_max_length: Optional[int] = self.body.maxlen
         assert current_max_length is not None
         self.body = collections.deque(self.body, maxlen=current_max_length + 1)
-        self.body.insert(
-            0, self.body[0] + DIRECTIONS[self.direction]["coords"]
-        )
+        self.body.insert(0, self.body[0] + DIRECTIONS[self.direction]["coords"])
 
     def is_about_to_collide(self, next_step: Coord) -> bool:
         """
         Returns true if snake is about to collide with itself or the walls.
         """
-        return any([
-            next_step in self.body,
-            self.body[-1].y in {0, PLAYGROUND_HEIGHT - 1},
-            self.body[-1].x in {0, PLAYGROUND_WIDTH // 2 - 1},
-        ])
+        return any(
+            [
+                next_step in self.body,
+                self.body[-1].y in {0, PLAYGROUND_HEIGHT - 1},
+                self.body[-1].x in {0, PLAYGROUND_WIDTH // 2 - 1},
+            ]
+        )
 
-    def is_touching_food(self, food) -> bool:
+    def is_touching_food(self, food: "Food") -> bool:
         """
         Returns true if snake's head touches food in any way.
         """

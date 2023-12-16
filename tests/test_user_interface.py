@@ -1,19 +1,17 @@
-import pytest
-
 from snake import core
 from snake import user_interface
-from tests.fixtures import fake_curses, fake_stdscr
-from tests.util import fake_getch_game_over
+from tests.fixtures import fake_curses, fake_stdscr  # noqa: F401
+from tests.util import fake_getch_game_over  # noqa: F401
 
 
-def test_ensure_terminal_size(fake_curses, fake_stdscr):
+def test_ensure_terminal_size(fake_curses, fake_stdscr):  # noqa: F811
     assert user_interface.ensure_terminal_size()
     fake_curses.LINES = 10
     fake_curses.COLS = 60
     assert not user_interface.ensure_terminal_size()
 
 
-def test_render_snake(fake_curses, fake_stdscr):
+def test_render_snake(fake_curses, fake_stdscr):  # noqa: F811
     game = core.Game(fake_stdscr)
     ui = user_interface.UserInterface(fake_stdscr)
     ui.render_snake(game.snake)
@@ -21,7 +19,7 @@ def test_render_snake(fake_curses, fake_stdscr):
         assert (piece.y, piece.x * 2, "  ", None) in fake_stdscr.addstred
 
 
-def test_render_food(fake_curses, fake_stdscr):
+def test_render_food(fake_curses, fake_stdscr):  # noqa: F811
     game = core.Game(fake_stdscr)
     ui = user_interface.UserInterface(fake_stdscr)
     ui.render_food(game.food)
@@ -33,7 +31,7 @@ def test_render_food(fake_curses, fake_stdscr):
     ) in fake_stdscr.addstred
 
 
-def test_render_score(fake_curses, fake_stdscr):
+def test_render_score(fake_curses, fake_stdscr):  # noqa: F811
     ui = user_interface.UserInterface(fake_stdscr)
     ui.render_score("100")
     assert (

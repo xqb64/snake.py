@@ -21,12 +21,14 @@ def ensure_terminal_size() -> bool:
         return True
     return False
 
+
 def make_color_pairs() -> None:
     """
     Helper function to make curses color pairs
     """
     curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_WHITE)
     curses.init_pair(2, curses.COLOR_RED, curses.COLOR_RED)
+
 
 def create_screen(stdscr: Window) -> Optional[Window]:
     if ensure_terminal_size():

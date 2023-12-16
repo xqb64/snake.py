@@ -8,8 +8,6 @@ from snake.core import (
     Game,
 )
 from snake.user_interface import (
-    PLAYGROUND_HEIGHT,
-    PLAYGROUND_WIDTH,
     UserInterface,
     create_screen,
     make_color_pairs,

@@ -1,36 +1,28 @@
-# snake.py
+<p align="center">
+  <img src="https://raw.githubusercontent.com/xqb64/snake.py/master/snake.png" alt="snake"/>
+</p>
 
-![build status](https://github.com/xqb64/snake.py/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/xqb64/snake.py/branch/master/graph/badge.svg?token=TLGV3HQGK0)](https://codecov.io/gh/xqb64/snake.py) ![python-versions](.github/badges/python-versions.svg) ![GitHub](https://img.shields.io/github/license/xqb64/snake.py)
+<h1 align="center">snake.py</h1>
 
-Classic snake game implementation written in Python using curses.
+A snake game I hacked together in Python using curses.
 
-![screenshot](snake.gif)
-
-## Playing and development
-
-You will need [poetry](https://github.com/python-poetry/poetry), preferably with these options in config:
-
-```toml
-virtualenvs.create = true
-virtualenvs.in-project = true
-```
-
-Then clone the repo, cd into it, make a venv, activate it, and install the project:
+## Installation
 
 ```sh
 git clone https://github.com/xqb64/snake.py pysnake
 cd pysnake
-poetry env use python3
-. .venv/bin/activate
-poetry install
+python3 -m venv env
+source env/bin/activate
+pip install .
 ```
+
+## Tests
 
 To run tests, mypy checks, and style checks, you need to have Pythons:
 
-- 3.6
-- 3.7
-- 3.8
-- 3.9
+- 3.10
+- 3.11
+- 3.12
 
 For installing all the Python versions, I recommend [pyenv](https://github.com/pyenv/pyenv).
 
@@ -39,6 +31,14 @@ Once you have them, run:
 ```
 tox
 ```
+
+## See also
+
+[snake](https://github.com/xqb64/snake) - Another snake game, written in Rust
+
+## Contributing
+
+Fork the repository and submit a PR.
 
 ## Licensing
 

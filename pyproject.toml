@@ -1,32 +1,21 @@
-[tool.poetry]
-name = "snake"
+[project]
+name = "wrath"
 version = "0.1.0"
-description = "The classic snake game implemented in Python using curses"
-authors = ["xqb64 <xqb64@users.noreply.github.com>"]
-license = "MIT"
+description = "An ncurses snake game"
+authors = [{name = "xqb64", email = "x@nuked.one"}]
 readme = "README.md"
-
-[tool.poetry.scripts]
-snake = 'snake.application:sync_main'
-
-[tool.poetry.dependencies]
-python = "^3.6"
-attrs = "^20.3.0"
-
-[tool.poetry.dev-dependencies]
-pytest = "^6.1.2"
-mypy = "^0.790"
-pytest-cov = "^2.10.1"
-tox = "^3.20.1"
-tox-ini-fmt = "^0.5.0"
-pylint = "^2.6.0"
-
-[tool.pytest.ini_options]
-addopts = "--cov=snake --cov-report=xml"
-testpaths = [
-    "tests",
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dependencies = [
+    "attrs >= 23.1.0",
 ]
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[project.optional-dependencies]
+dev = [
+    "mypy >= 1.7.1",
+    "ruff >= 0.1.6",
+    "tox >= 4.11.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["snake"]

@@ -1,6 +1,5 @@
 import pytest
 from snake import application
-from snake import core
 from snake import user_interface
 from snake.user_interface import PLAYGROUND_HEIGHT, PLAYGROUND_WIDTH
 
