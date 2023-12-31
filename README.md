@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/xqb64/snake.py/master/snake.png" alt="snake"/>
-</p>
-
 <h1 align="center">snake.py</h1>
 
 A snake game I hacked together in Python using curses.
